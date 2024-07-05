@@ -1,0 +1,54 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:3.0.7"
+        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.32.0"
+        classpath "org.owasp:dependency-check-gradle:8.2.0"
+        classpath "org.sonatype.gradle.plugins:scan-gradle-plugin:2.5.5"
+    }
+}
+
+
+plugins {
+    id 'java'
+    id "org.springframework.boot" version "3.0.7"
+    id "io.spring.dependency-management" version "1.0.10.RELEASE"
+    id "org.sonarqube" version "4.0.0.2929"
+    id "com.diffplug.spotless" version "6.13.0"
+    id "com.github.spotbugs" version "4.7.3"
+    id "jacoco"
+    id "application"
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+//    testImplementation platform('org.junit:junit-bom:5.10.0')
+//    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'io.rest-assured:rest-assured:5.4.0'
+    testImplementation 'org.testng:testng:7.4.0'
+    testImplementation 'io.rest-assured:json-path:5.4.0'
+    implementation 'io.rest-assured:xml-path:5.4.0'
+    implementation 'io.rest-assured:rest-assured-common:5.4.0'
+    implementation 'org.json:json:20240303'
+    implementation 'commons-logging:commons-logging:1.2'
+    implementation 'com.opencsv:opencsv:5.7.1'
+
+
+
+
+}
+
+test {
+    useJUnitPlatform()
+}
